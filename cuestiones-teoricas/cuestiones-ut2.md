@@ -16,13 +16,6 @@ Cuando abro `http://localhost:8080/status`, el navegador envía una petición HT
 
 En NovaHarvest con Docker, la cabecera `Server` debería mostrar `nginx`, porque nginx es quien responde directamente al navegador. Al ejecutar la aplicación con `dotnet run`, debería aparecer `Kestrel`, ya que la petición llega directamente a ASP.NET Core. Para comprobarlo, puedo ejecutar `curl -I http://localhost:8080/status` con Docker y `curl -I` usando la dirección que indique `dotnet run`. Si detengo el backend con `docker compose stop backend`, las peticiones a `/status` y `/css/site.css` deberían devolver el código HTTP 502, porque nginx no puede contactar con el servidor de aplicaciones. El backend no publica ningún puerto porque solo debe ser accesible desde la red interna de Docker, a través de nginx.
 
-### 4. Cabeceras HTTP y exposición de puertos
-
-Al ejecutar `curl -s -D - -o /dev/null http://localhost:8080/status`, obtenemos una respuesta `HTTP/1.1 200 OK` y la cabecera `Server: nginx/1.27.5`.
-Esto demuestra que nginx recibe la petición y devuelve una respuesta correcta.
-Con `docker compose ps` comprobamos que nginx publica el puerto 8080 del equipo, mientras que el backend solo utiliza el puerto 8080 dentro de Docker.
-Así, el backend no tiene un puerto publicado directamente en el equipo anfitrión y las peticiones pasan por nginx.
-
 ## 5. Nginx
 
 En NovaHarvest, nginx no sirve `site.css` ni `logo.png` por su cuenta porque su configuración `web/nginx.conf` reenvía todas las peticiones al backend. ASP.NET Core sirve esos archivos desde la carpeta `wwwroot`. Así, nginx actúa como reverse proxy y el backend se encarga de generar las páginas y servir los archivos estáticos. Si la aplicación se publicara en Internet, nginx podría aportar funciones como terminar conexiones HTTPS y gestionar certificados. También podría limitar peticiones para reducir abusos o distribuirlas entre varios servidores backend.
