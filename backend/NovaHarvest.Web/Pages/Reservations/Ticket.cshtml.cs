@@ -9,6 +9,7 @@ public class TicketModel : PageModel
     public int Kilograms { get; private set; }
     public string PickupLocation { get; private set; } = "";
     public DateTime GeneratedAt { get; private set; }
+    public string PageTitle { get; private set; } = "";
 
     public void OnGet()
     {
@@ -17,5 +18,6 @@ public class TicketModel : PageModel
         Kilograms = 20;
         PickupLocation = "Cooperativa del Valle del Jerte";
         GeneratedAt = DateTime.Now;
+        PageTitle = "Justificante de reserva";
     }
 }
