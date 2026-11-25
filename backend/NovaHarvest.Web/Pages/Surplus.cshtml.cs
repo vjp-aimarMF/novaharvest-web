@@ -38,7 +38,7 @@ public class SurplusModel : PageModel
         343,
         120,
         3.20m,
-        "<b>Recoger antes de las 14:00</b>");
+        "Recoger antes de las 14:00");
 
     public void OnGet()
     {
