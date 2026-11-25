@@ -27,6 +27,9 @@ public class SurplusModel : PageModel
 
     public bool IsOutOfStock { get; private set; }
 
+    public string ProducerNote { get; private set; } = "";
+    public string? DaysClass { get; private set; }
+
     public Surplus Surplus { get; } = new(
         "Cereza Picota",
         "Huerta Los Castaños",
@@ -52,5 +55,10 @@ public class SurplusModel : PageModel
                 ? "¡Últimos kilos!"
                 : "Disponible";
         IsOutOfStock = RemainingKg <= 0;
+        ProducerNote = Surplus.Note ?? "Sin observaciones";
+
+        DaysClass = DaysToConsume <= 2 && RemainingKg > 0
+            ? "urgent"
+            : null;
     }
 }
