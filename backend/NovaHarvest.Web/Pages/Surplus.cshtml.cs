@@ -11,6 +11,8 @@ public class SurplusModel : PageModel
 
     private const int ShelfLifeDays = 7;
 
+    private const int LowStockKg = 50;
+
     public int RemainingKg { get; private set; }
     public int FullBoxes { get; private set; }
     public int LooseKg { get; private set; }
@@ -20,6 +22,8 @@ public class SurplusModel : PageModel
 
     public DateTime ConsumeBefore { get; private set; }
     public int DaysToConsume { get; private set; }
+
+    public string Status { get; private set; } = "";
 
     public Surplus Surplus { get; } = new(
         "Cereza Picota",
@@ -40,5 +44,10 @@ public class SurplusModel : PageModel
         SurplusValue = DiscountedPrice * RemainingKg;
         ConsumeBefore = Surplus.HarvestDate.AddDays(ShelfLifeDays);
         DaysToConsume = (ConsumeBefore - DateTime.Today).Days;
+        Status = RemainingKg <= 0
+            ? "Agotado"
+            : RemainingKg < LowStockKg
+                ? "¡Últimos kilos!"
+                : "Disponible";
     }
 }
