@@ -7,9 +7,14 @@ public class SurplusModel : PageModel
 {
     private const int BoxKg = 5;
 
+    private const decimal SurplusDiscount = 0.30m;
+
     public int RemainingKg { get; private set; }
     public int FullBoxes { get; private set; }
     public int LooseKg { get; private set; }
+
+    public decimal DiscountedPrice { get; private set; }
+    public decimal SurplusValue { get; private set; }
 
     public Surplus Surplus { get; } = new(
         "Cereza Picota",
@@ -26,5 +31,7 @@ public class SurplusModel : PageModel
         RemainingKg = Surplus.AvailableKg - Surplus.ReservedKg;
         FullBoxes = RemainingKg / BoxKg;
         LooseKg = RemainingKg % BoxKg;
+        DiscountedPrice = Surplus.PricePerKg * (1 - SurplusDiscount);
+        SurplusValue = DiscountedPrice * RemainingKg;
     }
 }
