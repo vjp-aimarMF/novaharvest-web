@@ -26,3 +26,13 @@ En `Surplus.cshtml`, `@Model.Surplus.Product` es una expresión implícita y mue
 ![Cuestión 3.1](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion3.1.png)
 
 ![Cuestión 3.2](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion3.2.png)
+
+## 4. Sintaxis
+
+Si se escribe una propiedad que no existe, como `@Model.SurplusPrize`, la compilación falla. En nuestro código el precio rebajado se llama `DiscountedPrice`, mientras que el enunciado menciona `SurplusPrice`; hay que tener presente esa diferencia al hacer la prueba. En `Model.Surplus.PricePerKg * 0.7m`, Razor evalúa la expresión de la propiedad, pero la multiplicación no queda incluida como una sola expresión.
+
+Para calcular toda la operación se escribe `@(Model.Surplus.PricePerKg * 0.7m)`. Ambos cambios son temporales y después hay que restaurar el código.
+
+![Cuestión 4.1](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion4.1.png)
+![Cuestión 4.2](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion4.2.png)
+![Cuestión 4.3](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion4.3.png)
