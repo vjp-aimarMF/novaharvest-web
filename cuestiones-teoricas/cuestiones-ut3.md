@@ -102,3 +102,14 @@ El layout no puede leer una variable local de `Status.cshtml`, porque pertenece 
 ![Cuestión 9.2](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion9.2.png)
 ![Cuestión 9.3](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion9.3.png)
 ![Cuestión 9.4](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion9.4.png)
+
+## PageModel
+En `SurplusModel` están los datos del excedente y sus cálculos; en `Surplus.cshtml` está el HTML que los muestra mediante `@Model...`. Por ejemplo, `RemainingKg` resta los kilos reservados de los disponibles. Así se separa la lógica de la presentación.
+
+Cada petición a `/surplus` crea una nueva instancia de `SurplusModel`, así que tres peticiones crean tres instancias que viven durante sus respectivas peticiones. `SiteStats`, al ser estático, permanece mientras siga activo el proceso; en nuestro proyecto el contador aumenta al visitar `/status`, no `/surplus`.
+
+![Cuestión 10.1](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion10.1.png)
+![Cuestión 10.2](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion10.2.png)
+![Cuestión 10.3](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion10.3.png)
+![Cuestión 10.4](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion10.4.png)
+![Cuestión 10.5](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion10.5.png)
