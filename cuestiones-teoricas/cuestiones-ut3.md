@@ -47,3 +47,21 @@ En el escenario A, el elemento de días no lleva `class` y el botón no lleva `d
 ![Cuestión 5.3 Escenario A](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion5.3.png)
 ![Cuestión 5.4 Escenario C](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion5.4.png)
 ![Cuestión 5.5 Escenario D](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion5.5.png)
+
+## 6. Directivas
+| Directiva o fichero | Función en NovaHarvest |
+|---|---|
+| `@page` | Declara una página Razor. |
+| `@page "/ticket"` | Define la ruta `/ticket`. |
+| `@model` | Conecta la vista con su `PageModel`. |
+| `@using` | Permite utilizar tipos de otro espacio de nombres. |
+| `@namespace` | Define el espacio de nombres de las páginas generadas. |
+| `@inject` | Permite recibir un servicio, como el entorno de ejecución. |
+| `_ViewStart.cshtml` | Establece el layout predeterminado. |
+| `Layout = null;` | Evita aplicar el layout a `Ticket.cshtml`. |
+
+Si quitamos `@namespace` de `_ViewImports.cshtml`, la compilación puede fallar porque las páginas generadas no encuentran sus modelos en el espacio de nombres esperado. `/reservations/ticket` devuelve 404 porque la página declara expresamente la ruta `/ticket`.
+
+![Cuestión 6.1](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion6.1.png)
+![Cuestión 6.2](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion6.2.png)
+![Cuestión 6.3](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion6.3.png)
