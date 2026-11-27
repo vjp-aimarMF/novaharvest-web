@@ -36,3 +36,14 @@ Para calcular toda la operación se escribe `@(Model.Surplus.PricePerKg * 0.7m)`
 ![Cuestión 4.1](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion4.1.png)
 ![Cuestión 4.2](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion4.2.png)
 ![Cuestión 4.3](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion4.3.png)
+
+## 5. Efectos en el documento
+La nota inicial contiene `<b>Recoger antes de las 14:00</b>`. Razor la codifica cuando muestra `@Model.ProducerNote`, por lo que las etiquetas se ven como texto y no aplican negrita. No conviene usar `Html.Raw` con texto de usuarios, porque el navegador podría interpretar ese contenido como HTML.
+
+En el escenario A, el elemento de días no lleva `class` y el botón no lleva `disabled`. En el C no hay `class`, pero el botón está desactivado. En el D, los días llevan `class="urgent"` y el botón sigue habilitado.
+
+![Cuestión 5.1](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion5.1.png)
+![Cuestión 5.2](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion5.2.png)
+![Cuestión 5.3 Escenario A](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion5.3.png)
+![Cuestión 5.4 Escenario C](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion5.4.png)
+![Cuestión 5.5 Escenario D](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion5.5.png)
