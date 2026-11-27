@@ -85,3 +85,10 @@ Con 223 kg, la división entera `223 / 5` da 44 cajas y `%` da 3 kg sueltos. Si 
 
 ![Cuestión 7.1](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion7.1.png)
 ![Cuestión 7.2](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion7.2.png)
+
+
+## 8. Cultura
+`ToString("C")` formatea precios y `ToString("d")` o los formatos de fecha muestran fechas según la cultura activa. `app.UseRequestLocalization("es-ES")` fija la cultura española para las peticiones y permite obtener los formatos esperados tanto con Docker como con `dotnet run`.
+
+![Cuestión 8.1](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion8.1.png)
+![Cuestión 8.2](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion8.2.png)
