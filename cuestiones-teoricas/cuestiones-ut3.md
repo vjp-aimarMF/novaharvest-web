@@ -17,3 +17,12 @@ En UT2 las páginas se generaban con `MapGet` y cadenas HTML en `Program.cs`. Ah
 ![Cuestión 2.1](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion2(Old-Program.cs).png)
 
 ![Cuestión 2.2](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion2(New-Program.cs).png)
+
+## 3. Etiquetas de código
+En `Surplus.cshtml`, `@Model.Surplus.Product` es una expresión implícita y muestra el producto. `@(Model.DiscountedPrice.ToString("C"))` es una expresión explícita. El bloque `@{ ViewData["Title"] = "Excedente destacado"; }` establece el título y no añade texto al cuerpo. `@@novaharvest` muestra una arroba literal y `@* comentario *@` no aparece en el HTML.
+
+`info@novaharvest.es` se interpreta como texto de una dirección de correo; @novaharvest podría interpretarse como código Razor, por eso se usa `@@` para mostrar la arroba literal.
+
+![Cuestión 3.1](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion3.1.png)
+
+![Cuestión 3.2](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion3.2.png)
