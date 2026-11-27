@@ -65,3 +65,23 @@ Si quitamos `@namespace` de `_ViewImports.cshtml`, la compilación puede fallar 
 ![Cuestión 6.1](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion6.1.png)
 ![Cuestión 6.2](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion6.2.png)
 ![Cuestión 6.3](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion6.3.png)
+
+## 7. Tipos y operadores
+| Dato | Tipo | Cálculo o motivo |
+|---|---|---|
+| `RemainingKg` | `int` | `AvailableKg - ReservedKg`. |
+| `FullBoxes` | `int` | `RemainingKg / BoxKg`; la división entera da cajas completas. |
+| `LooseKg` | `int` | `RemainingKg % BoxKg`; da el resto de kilos. |
+| `DiscountedPrice` | `decimal` | Precio después del descuento. |
+| `SurplusValue` | `decimal` | Precio rebajado por kilos disponibles. |
+| `ConsumeBefore` | `DateTime` | Fecha de cosecha más el plazo de consumo. |
+| `DaysToConsume` | `int` | Días que quedan hasta la fecha límite. |
+| `Status` | `string` | Texto elegido según los kilos disponibles. |
+| `IsOutOfStock` | `bool` | Indica si no quedan kilos. |
+| `ProducerNote` | `string` | Usa `??` para sustituir una nota `null`. |
+| `DaysClass` | `string?` | Guarda `"urgent"` o `null`. |
+
+Con 223 kg, la división entera `223 / 5` da 44 cajas y `%` da 3 kg sueltos. Si los kilos fueran `decimal`, la división podría dar un resultado con decimales y ya no indicaría directamente un número entero de cajas completas. Razor muestra `True` o `False` si se imprime un `bool`, y no genera contenido para un `null`.
+
+![Cuestión 7.1](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion7.1.png)
+![Cuestión 7.2](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion7.2.png)
