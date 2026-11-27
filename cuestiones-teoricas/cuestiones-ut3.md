@@ -92,3 +92,13 @@ Con 223 kg, la división entera `223 / 5` da 44 cajas y `%` da 3 kg sueltos. Si 
 
 ![Cuestión 8.1](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion8.1.png)
 ![Cuestión 8.2](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion8.2.png)
+
+## 9. Ámbito
+Una variable local declarada en `Status.cshtml` se crea de nuevo en cada petición, por lo que no conserva el contador entre recargas. `SiteStats.Visits` es estático y comparte el contador entre peticiones y navegadores mientras siga funcionando la aplicación. Al reiniciar el backend, el contador vuelve a empezar.
+
+El layout no puede leer una variable local de `Status.cshtml`, porque pertenece a otro contexto. El título se comparte mediante `ViewData["Title"]`.
+
+![Cuestión 9.1](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion9.1.png)
+![Cuestión 9.2](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion9.2.png)
+![Cuestión 9.3](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion9.3.png)
+![Cuestión 9.4](/backend/NovaHarvest.Web/wwwroot/img/Captura-Cuestion9.4.png)
